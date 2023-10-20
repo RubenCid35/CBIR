@@ -23,21 +23,3 @@ def load_images(train: bool = True):
     images_paths['image_id'] = images_paths.index
     return images_paths, images
 
-def save_features(features, index, meta, filename):
-    """
-    Saves the features vector to a csv with the metadata of each one.
-    """
-    if isinstance(features, list):
-        features = np.concatenate(features)
-
-    descs = pd.DataFrame(features)
-    descs['image_id'] = index
-
-    descs_save = pd.merge(descs, meta, how = "inner", left_on = "image_id", right_on = "image_id").drop(["train", "image_name", "label", "path"], axis = 1)
-    descs_save.to_csv(f"features/{filename}.csv", index = False)
-
-def load_features(path: str):
-    df = pd.read_csv(path)
-    images_paths = df[['image_id', 'label_id']]
-    features = df.drop(['image_id', 'label_id'], axis = 1).values
-    return images_paths, features
