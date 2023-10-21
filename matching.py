@@ -8,6 +8,8 @@ from collections import OrderedDict
 from typing import List, Tuple, Optional, Callable, Union
 from numpy.typing import NDArray
 
+from utils import change_dtype
+
 def _drop_duplicate(lista: List[int]):
     ret = []
     seen_image = set()
@@ -64,6 +66,7 @@ def minmin_retrival(
     
     query_desc = query_desc.astype(base_features.dtype)
 
+    query_desc = change_dtype(query_desc)
     assert query_desc.shape[1] == base_features.shape[1], "Los descriptores en la base de datos y los de consulta deben tener el mismo tamaño" 
     matches = matcher.knnMatch(query_desc.reshape(-1, base_features.shape[1]), base_features, 50)
     

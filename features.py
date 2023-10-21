@@ -7,6 +7,7 @@ import pandas as pd
 import cv2
 
 from tqdm.auto import tqdm
+from utils import change_dtype
 
 def extract_features(
         feature_function: Callable[[NDArray[np.uint8]], List[NDArray[np.float]]], 
@@ -76,11 +77,7 @@ def load_features(path: str):
     images_paths = df[['image_id', 'label_id']]
     
     features = df.drop(['image_id', 'label_id'], axis = 1).values
-    
-    if np.issubdtype(features.dtype, np. integer):
-        features = features.astype(np.uint8)
-    else:
-        features = features.astype(np.float32)
+    features = change_dtype(features)
 
     return images_paths, features    
 

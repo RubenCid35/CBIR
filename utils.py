@@ -23,3 +23,11 @@ def load_images(train: bool = True):
     images_paths['image_id'] = images_paths.index
     return images_paths, images
 
+
+def change_dtype(val):
+    if np.issubdtype(val.dtype, np. integer):
+        val = val.astype(np.uint8)
+    else:
+        val = val.astype(np.float32)
+
+    return val
