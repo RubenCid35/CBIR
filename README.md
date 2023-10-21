@@ -8,6 +8,9 @@ Para un sistema C-B IR, se diferencia 3 partes importantes:
 2. Extración de Características: extraer el contenido de las imágenes para poder comparar
 3. Comparación, Similaridad y Distancia entre contenidos de imágenes.
 
+Este sistema permitirá obtener resultados como el siguiente:
+![](docs/result_orb.png)
+
 ## Conjunto de Datos
 Para la realización de la práctica, se ha tomado un subconjunto del dataset 'Universal Image Embeddings'
 de Kaggle. Este dataset se componen de 11 clases diferentes y de imágenes de 128 x 128. Se ha tomado
