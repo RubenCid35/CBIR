@@ -3,3 +3,6 @@ memoria/*
 memoria
 
 archive(1)/*
+
+__pycache__/*
+__pycache__

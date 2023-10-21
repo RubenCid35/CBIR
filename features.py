@@ -74,6 +74,13 @@ def save_features(features, index, meta, filename):
 def load_features(path: str):
     df = pd.read_csv(path)
     images_paths = df[['image_id', 'label_id']]
+    
     features = df.drop(['image_id', 'label_id'], axis = 1).values
+    
+    if np.issubdtype(features.dtype, np. integer):
+        features = features.astype(np.uint8)
+    else:
+        features = features.astype(np.float32)
+
     return images_paths, features    
 
