@@ -12,7 +12,7 @@ from utils import change_dtype
 def extract_features(
         feature_function: Callable[[NDArray[np.uint8]], List[NDArray[np.float]]], 
         images: List[NDArray[np.uint8]],
-        min_features: int = 3,
+        min_features: int = -1,
         progress: bool = False
         ) -> Tuple[NDArray[np.float], List[int]]:
     """

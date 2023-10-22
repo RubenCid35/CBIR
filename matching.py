@@ -19,6 +19,7 @@ def _drop_duplicate(lista: List[int]):
         seen_image.add(l)
     return ret
 
+
 def minmin_retrival(
         query_desc: NDArray[Union[np.float, np.integer]],
         base_features: NDArray[Union[np.float, np.integer]],
