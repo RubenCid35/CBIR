@@ -7,15 +7,15 @@ def load_images(train: bool = True):
     """
     Loads a dataframe with the image metadata and a list with the images in RGB Format
     """
-    if train: path = 'train.csv'
-    else: path = 'test.csv'
+    if train: path = '../images/train.csv'
+    else: path = '../images/test.csv'
     images_paths = pd.read_csv(path)
     images = []
 
     label_map = {'packaged': 0, 'dishes': 1, 'storefronts': 2, 'artwork': 3, 'meme': 4, 'cars': 5, 'landmark': 6, 'illustrations': 7, 'toys': 8, 'apparel': 9, 'furniture': 10}
 
     for _, row in images_paths.iterrows():
-        img = cv2.imread(row['path'])
+        img = cv2.imread("../" + row['path'])
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         images.append(img)
     
