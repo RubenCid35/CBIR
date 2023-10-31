@@ -1,11 +1,11 @@
 # Content Based Image Retrival: AAPI
 Este repositorio contiene el código para la experimentación con diferentes
-sistemas para la recuperación de imágenes. Se plante realizar experimentos 
+sistemas para la recuperación de imágenes. Se plantea realizar experimentos 
 con la mezcla de parámetros y métodos.
 
 Para un sistema C-B IR, se diferencia 3 partes importantes:
 1. Creación de Bases de Datos con imágenes.
-2. Extración de Características: extraer el contenido de las imágenes para poder comparar
+2. Extracción de Características: extraer el contenido de las imágenes para poder comparar
 3. Comparación, Similaridad y Distancia entre contenidos de imágenes.
 
 Este sistema permitirá obtener resultados como el siguiente:
@@ -35,7 +35,7 @@ tomar solamente los N primeras posiciones del vector.
 ## Comparación y Matching
 Para los experimentos, se plantea usar con los siguientes métodos o algoritmos:
 
-* [ ] BrutoForce Matching: OpenCV. Fuerza Bruta
+* [ ] BruteForce Matching: OpenCV. Fuerza Bruta
 * [ ] FlaanBasedMatching: OpenCV. Parecido al anterior
 * [ ] Local Sensitive Hashing
 
