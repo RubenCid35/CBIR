@@ -8,17 +8,19 @@ import dash_bootstrap_components as dbc
 from dash import State, Input, Output, MATCH, ALL, ctx
 
 from utils.utils import load_images
+from .AlgorithmModal import algorithm_callbacks, algoritm_modal
+
 
 NO_IMAGE_ICON: str = r"https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg?w=826"
 
 # Load Test Image DataFrame
 TEST_IMAGES, _ = load_images(False)
-TEST_IMAGES = TEST_IMAGES.sample(n = 40)
+TEST_IMAGES = TEST_IMAGES# .sample(n = 40)
 
 # Searh / Algorithm Adjust Zone
 adjust = html.Div([
-    html.Button("Buscar", id = "search-relevant-images-btn" ,  n_clicks=0     , className = "rounded-md bg-gray-300 mx-[20px] py-[5px]"),
-    html.Button("Modificar Algoritmo", id = "change-algoritm-btn",  n_clicks=0, className = "rounded-md bg-gray-300 mx-[20px] py-[5px]")
+    html.Button("Buscar", id = "search-relevant-images-btn" ,  n_clicks=0     , className = "rounded-md bg-gray-300 mx-[20px] py-[5px] text-bold"),
+    html.Button("Modificar Algoritmo", id = "change-algoritm-btn",  n_clicks=0, className = "rounded-md bg-gray-300 mx-[20px] py-[5px] text-bold")
 ], className='grid grid-cols-2 mx-auto mt-[5px]')
 
 # Image / Button Zone
@@ -31,7 +33,7 @@ visual_zone = html.Div([
     ], className="w-[70%] mx-auto my-[10px] pt-5"),
 
     dcc.Store(id = "query-image-data", storage_type = "memory", data = {"uri": NO_IMAGE_ICON, "label": None})
-], className="rounded-lg border-gray-400 border-[2px] py-[10px]")
+], className="rounded-md border-gray-400 border-[2px] py-[10px]")
 
 # Modal
 def generate_image_button(image_path, _id):
@@ -62,9 +64,13 @@ change_image_modal = html.Div([
     ], className = "flex align-middle justify-center")
 
 
-], id = "image-input-modal", hidden = True, className = "absolute top-10 mx-10 bg-white rounded-md w-11/12 h-[90%] z-10 border-gray-500 border-4 mx-auto")
+], id = "image-input-modal", hidden = True, 
+    className = "absolute top-10 bg-white rounded-md w-[95vw] h-[90%] z-10 border-gray-500 border-4 left-[50%] translate-x-[-50%]"
+)
 
 def input_callbacks(app: dash.Dash):
+
+    algorithm_callbacks(app)
 
     @app.callback(
 
@@ -104,9 +110,11 @@ def input_callbacks(app: dash.Dash):
 
     return    
 
+
 # Input Zone
 input_banner = html.Div([
     visual_zone,
-    change_image_modal
-], className = "col-span-4  min-w-[275px]")
+    change_image_modal,
+    algoritm_modal
+], className = "col-span-4 min-w-[275px]")
 

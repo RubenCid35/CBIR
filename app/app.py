@@ -11,7 +11,11 @@ from dash import dcc, html
 
 
 # Script tailwind para el estilo
-external_script = [{"src": "https://cdn.tailwindcss.com"}, {"src" : "https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"}]
+external_script = [
+    {"src": "./tailwind.config.js"}, 
+    {"src": "https://cdn.tailwindcss.com"}, 
+    {"src" : "https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"}
+]
 external_stylesheet = [{"src": "https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css"}]
 
 app = dash.Dash(
@@ -27,18 +31,20 @@ app.scripts.config.serve_locally = True
 
 # No cambiar el lugar o da error
 from components.header import header_layout
-from components.InputBanner import input_banner, input_callbacks
-
+from components.InputCard import input_banner, input_callbacks
+from components.RetCard import output_card, output_callbacks
 
 # Layout
 
 app.layout = html.Div([
+    html.Script(src = "https://cdn.tailwindcss.com"),
     # Header
     header_layout,
     # Image Query + Stats
     html.Div([
-        input_banner
-    ], className = "grid grid-cols-10 w-full px-5 pt-2")
+        input_banner,
+        output_card
+    ], className = "grid grid-cols-10 w-full px-5 pt-2 gap-2")
     
 
     # Image Results
@@ -47,6 +53,7 @@ app.layout = html.Div([
 
 # Active CallBack
 input_callbacks(app)
+output_callbacks(app)
 
 
 if __name__ == "__main__":
