@@ -10,6 +10,7 @@ from dash import State, Input, Output, MATCH, ALL, ctx
 from utils.utils import load_images
 from .AlgorithmModal import algorithm_callbacks, algoritm_modal
 
+import time
 
 NO_IMAGE_ICON: str = r"https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg?w=826"
 
@@ -32,7 +33,8 @@ visual_zone = html.Div([
         ], className="w-[100%]", id = "change-image-btn")
     ], className="w-[70%] mx-auto my-[10px] pt-5"),
 
-    dcc.Store(id = "query-image-data", storage_type = "memory", data = {"uri": NO_IMAGE_ICON, "label": None})
+    dcc.Store(id = "query-image-data", storage_type = "memory", data = {"uri": NO_IMAGE_ICON, "label": None}),
+    dcc.Store(id = "algo-data", storage_type = "session", data = {"uri": NO_IMAGE_ICON, "label": None})
 ], className="rounded-md border-gray-400 border-[2px] py-[10px]")
 
 # Modal
@@ -108,7 +110,8 @@ def input_callbacks(app: dash.Dash):
         else:
             return loaded_image, not is_closed, loaded_image['uri']
 
-    return    
+    
+
 
 
 # Input Zone
