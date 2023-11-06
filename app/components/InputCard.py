@@ -58,7 +58,7 @@ change_image_modal = html.Div([
     
     html.Div(
         [generate_image_button(row, i) for i, row in enumerate(TEST_IMAGES["path"]) ],
-        className = "grid grid-cols-6 gap-5 mt-5 mx-5 h-[80%] overflow-scroll"
+        className = "grid big:grid-cols-10 grid-cols-6 gap-5 mt-5 mx-5 h-[80%] overflow-scroll"
     ),
     
     html.Div([

@@ -1,4 +1,5 @@
 
+import os
 import cv2
 import numpy  as np
 import pandas as pd
@@ -19,6 +20,13 @@ from hashlib import sha256
 
 TRAIN_META, TRAIN_IMAGES = load_images(True)
 TEST_META, TEST_IMAGES = load_images(False)
+
+def check_features_file(save_name):
+    def check_name(file_name):
+        file_name = file_name.split(".")[0]
+        return save_name == file_name
+    return any(map(check_name, os.listdir('../features')))
+        
 
 
 def sift_descriptor(image, octaves: int = 8, thress: float = 0.1):
@@ -60,13 +68,14 @@ def train(algo, images, save = True):
         algorithm = sift_descriptor # partial(sift_descriptor, octaves = algo['config']['octaves'], thress = algo['config']['contrast'])
         config_phrase = ""
 
+    
+    save_name = algo_name + "-" + config_phrase[-10:]
+    print(save_name)
+    if check_features_file(save_name): return load_features('../features/' + save_name + '.csv')
+
     descriptores, index = extract_features(algorithm, images, min_features=3)
-
-    save_name = algo_name + "-" + config_phrase
-
     # Vocab
     vocab_on  = algo['vocab']['enable']
-    print(save_name)
     if vocab_on:
         vocab_bin = algo['vocab']['bins']
         
@@ -99,6 +108,9 @@ def train(algo, images, save = True):
     else:
         ret = pd.DataFrame(descriptores)
         ret['image_id'] = index
+        ret['label_id'] = 0 # Not used
+
+        if save: ret.to_csv("../features/" + save_name + ".csv")
 
     print(ret.head())
 

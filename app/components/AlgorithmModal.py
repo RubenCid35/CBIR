@@ -9,15 +9,17 @@ from recommender.recommender import train, TRAIN_IMAGES
 
 import time
 
-algo_extract_types = html.Div([
-    dcc.Dropdown([
-        { "label":"Scale Invariant Feature Transform", "value": "sift" },
-        { "label":"ORB", "value": "orb" },
-        { "label":"Histograma de Color", "value": "hist" },
-        { "label":"Red Convolucional", "value": "cnn" }
-    ], value = "sift", id = "algo-extract-type-select", clearable = False,
-    className = "text-left")
-], className = "w-[30em] min-w-[60%] ml-4")
+DEFAULT = { 
+  "method": "sift",
+  "config": {
+    "octaves": 4,
+    "contrast": 0.05
+  },
+  "vocab": {
+    "enable": False,
+    "bins": 50
+  }
+}
 
 def algorithm_callbacks(app):
     @app.callback(
@@ -28,8 +30,8 @@ def algorithm_callbacks(app):
 
         ret = []
         if extract_type == "sift":
-            get_octaves = html.Div(dcc.Slider(2, 10, step = 1, value = 4, id = {'type':'extract-config', 'index': 'sift-octaves'}), className = "w-[30em] min-w-[60%] ml-4")
-            contrast_thress = html.Div(dcc.Slider(0.01, 0.1, 0.01, value = 0.01, id = {'type':'extract-config', 'index': 'sift-contrast'}), className = "w-[30em] min-w-[60%] ml-4")
+            get_octaves = html.Div(dcc.Slider(2, 10, step = 1, value = 6, id = {'type':'extract-config', 'index': 'sift-octaves'}), className = "w-[30em] min-w-[60%] ml-4")
+            contrast_thress = html.Div(dcc.Slider(0.01, 0.1, 0.01, value = 0.05, id = {'type':'extract-config', 'index': 'sift-contrast'}), className = "w-[30em] min-w-[60%] ml-4")
             ret = [
                     html.Div([ html.Label("Número de Octavas: ", className = "text-center"), get_octaves ], className = "flex text-center my-8"),
                     html.Div([ html.Label("Umbral de Contraste: ", className = "text-center"), contrast_thress ], className = "flex text-center mb-8"),
@@ -81,7 +83,8 @@ def algorithm_callbacks(app):
     )
     def save_algorithm(_open_btn, _btn, extract_ids, extract_values, vocab_on, vocab_bins, prev_data, is_hidden):
         if is_hidden: return prev_data, not is_hidden
-        
+        print("close is triggered")
+
         data = {'method': "", 'config': {}, 'vocab': { 'enable': False, 'bins': None}}
         for i, config_opt in enumerate(extract_ids):
             opt_name = config_opt['index']
@@ -103,6 +106,28 @@ def algorithm_callbacks(app):
     def enabled_vocab_config(enable_state):
         return not enable_state
 
+    @app.callback(
+        Output('close-algo-btn', 'n_clicks'),
+        Output('algo-extract-type-select', 'value'),
+        Output('algo-vocab-enabled', 'on'),
+        Output('vocab-size', 'value'),
+        Input('reset-algo-btn', 'n_clicks'),
+        prevent_initial_call = True
+    )
+    def reset_algo_close(reset):
+        return 1, 'sift', False, 50
+
+
+algo_extract_types = html.Div([
+    dcc.Dropdown([
+        { "label":"Scale Invariant Feature Transform", "value": "sift" },
+        { "label":"ORB", "value": "orb" },
+        { "label":"Histograma de Color", "value": "hist" },
+        { "label":"Red Convolucional", "value": "cnn" }
+    ], value = "sift", id = "algo-extract-type-select", clearable = False,
+    className = "text-left")
+], className = "w-[30em] min-w-[60%] ml-4")
+
 
 algoritm_modal = html.Div([
 
@@ -114,13 +139,13 @@ algoritm_modal = html.Div([
         ], className = "ml-5 mt-8 border-gray-300 border-r-4"),
         html.Div([
             html.Div([
-                html.H1("Método de Extracción de Características", className = "text-xl text-bold mb-2 mr-4 text-center"),
+                html.H1("Creación de Bolsa de Palabras (BOW)", className = "text-xl text-bold mb-2 mr-4 text-center"),
                 html.Div(BooleanSwitch(id = "algo-vocab-enabled", on = False, className = ""), className = "mr-12 ml-auto"),
             ], className = "flex"),
             html.Div([
                 html.Div([ 
                     html.Label("Número de Palabras: ", className = "text-center"), 
-                    html.Div(dcc.Slider(10, 75, step = 5, value = 4, id = 'vocab-size', disabled = True), className = "w-[30em] min-w-[60%] ml-4")
+                    html.Div(dcc.Slider(10, 75, step = 5, value = 50, id = 'vocab-size', disabled = True), className = "w-[30em] min-w-[60%] ml-4")
                 ], className = "flex text-center my-8"),
             ], className = "border-2 border-gray-300 rounded-md py-4 px-2")
         ], className = "ml-5 mt-8 mr-8")
@@ -128,8 +153,11 @@ algoritm_modal = html.Div([
 
 
     html.Div([
+        html.Div([
         html.Button("Cerrar & Guardar", id = "close-algo-btn", className = "mx-auto flex text-center bg-gray-300 rounded-md px-12 py-1 mt-4"),
-        html.Span("Puede tardar unos segundos en actualizar.", className = "text-center text-lg text-gray-400")
+        html.Button("Reset  & Guardar", id = "reset-algo-btn", className = "mx-auto flex text-center bg-gray-300 rounded-md px-12 py-1 mt-4")
+        ]),
+        html.Span("Puede tardar unos minutos en actualizar si hay un vocabulario.", className = "text-center text-lg text-gray-400")
     ], className = "align-middle justify-center absolute bottom-10 left-[40%]")
 
 ], hidden = True, id = "algo-modal-div", className = "absolute top-10 bg-white rounded-md w-[95vw] h-[90%] z-10 border-gray-500 border-4 left-[50%] translate-x-[-50%]"
