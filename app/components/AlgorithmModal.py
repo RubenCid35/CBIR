@@ -83,7 +83,6 @@ def algorithm_callbacks(app):
     )
     def save_algorithm(_open_btn, _btn, extract_ids, extract_values, vocab_on, vocab_bins, prev_data, is_hidden):
         if is_hidden: return prev_data, not is_hidden
-        print("close is triggered")
 
         data = {'method': "", 'config': {}, 'vocab': { 'enable': False, 'bins': None}}
         for i, config_opt in enumerate(extract_ids):
@@ -95,9 +94,8 @@ def algorithm_callbacks(app):
         data['vocab']['enable'] = not vocab_on
         if not vocab_on:  data['vocab']['bins'] = vocab_bins
 
-        import json
-        print(json.dumps(data, indent = 2))
-        _ = train(data, TRAIN_IMAGES)
+        ret = train(data, TRAIN_IMAGES)
+        print(ret)
         return data, not is_hidden
 
 

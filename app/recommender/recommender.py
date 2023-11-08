@@ -24,11 +24,10 @@ TEST_META, TEST_IMAGES = load_images(False)
 def check_features_file(save_name):
     def check_name(file_name):
         file_name = file_name.split(".")[0]
+        print(file_name)
         return save_name == file_name
     return any(map(check_name, os.listdir('../features')))
         
-
-
 def sift_descriptor(image, octaves: int = 8, thress: float = 0.1):
     orb = cv2.SIFT_create(nfeatures = 50,  nOctaveLayers = octaves, contrastThreshold = thress, edgeThreshold = 10, sigma = 1.6  )
     img = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
@@ -52,6 +51,7 @@ def cch_descriptor(image, bins = 32):
 def train(algo, images, save = True):
     # Extract Features
     algo_name = algo['method']
+    print(dumps(algo['config'], sort_keys=True))
     config_phrase = dumps(algo['config'], sort_keys=True).encode('utf-8')
     config_phrase = sha256().hexdigest()
     if algo_name == 'sift':
@@ -70,19 +70,24 @@ def train(algo, images, save = True):
 
     
     save_name = algo_name + "-" + config_phrase[-10:]
-    print(save_name)
-    if check_features_file(save_name): return load_features('../features/' + save_name + '.csv')
+    if algo['vocab']['bins']:
+        vocab_bin = algo['vocab']['bins']
+        save_name = save_name + "-vocab-" + str(vocab_bin)
+
+    if check_features_file(save_name): 
+        if True:
+            return ('../features/' + save_name + '.csv', None)
+        else: return ('../features/' + save_name + '.csv', '../model/' + save_name + '.sav')
+    
+    save_name_model = None
 
     descriptores, index = extract_features(algorithm, images, min_features=3)
     # Vocab
     vocab_on  = algo['vocab']['enable']
     if vocab_on:
         vocab_bin = algo['vocab']['bins']
-        
-        save_name = save_name + "-vocab-" + str(vocab_bin)
-        print(save_name)
 
-        vocab_model = KMeans(n_clusters=vocab_bin)
+        vocab_model = KMeans(n_clusters=vocab_bin, init = 'k-means++', random_state = 20010)
         vocab_model = vocab_model.fit(descriptores)
         descriptores = vocab_model.predict(descriptores)
 
@@ -95,15 +100,16 @@ def train(algo, images, save = True):
         pairs = {}
         for image_id, idx in idxs.items():
             # TODO Fix
+            print(idx)
             vocab = vocab_model.predict(descriptores[idx])
             vocab = np.bincount(vocab, minlength=vocab_bin)
             pairs[image_id] = normalize( vocab.reshape((1, -1)) ).reshape((-1))
 
-        if save:
-            print(save_name)
-            dump(vocab_model, save_name + "-model.gpickle")        
-
         ret = pd.DataFrame.from_dict(pairs, orient = 'index')
+        if save:
+            save_name_model = save_name + "-model.gpickle"
+            dump(vocab_model, save_name_model)        
+            ret.to_csv("../features/" + save_name + ".csv")
 
     else:
         ret = pd.DataFrame(descriptores)
@@ -112,6 +118,5 @@ def train(algo, images, save = True):
 
         if save: ret.to_csv("../features/" + save_name + ".csv")
 
-    print(ret.head())
 
-    return ret
+    return save_name + '.csv', save_name_model
