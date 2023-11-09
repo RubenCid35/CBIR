@@ -30,8 +30,8 @@ autores = html.Details([
     html.Ul([
         html.Li("Rubén Cid Costa"),
         html.Li("Rodrigo Durán Andrés"),
-        html.Li("N"),
-        html.Li("TODO"),
+        html.Li("Ignacio García Luengo"),
+        html.Li("Nerea Rodrígyez Francisco"),
     ], className = "absolute bg-white border-gray-500 border-solid border-2 list-decimal px-10 py-2")
 ], className = "text-black text-lg text-left px-5")
 
