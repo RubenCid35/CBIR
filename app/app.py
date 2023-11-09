@@ -8,6 +8,12 @@ import dash
 import plotly.express as px
 
 from dash import dcc, html
+from dash.long_callback import DiskcacheLongCallbackManager
+
+## Diskcache
+import diskcache
+cache = diskcache.Cache("./cache")
+long_callback_manager = DiskcacheLongCallbackManager(cache)
 
 
 # Script tailwind para el estilo
@@ -24,6 +30,7 @@ app = dash.Dash(
     external_scripts=external_script,
     external_stylesheets=external_stylesheet,
     assets_folder= str(pathlib.Path.cwd().parent.absolute()),
+    long_callback_manager=long_callback_manager,
     serve_locally=True,
 )
 
