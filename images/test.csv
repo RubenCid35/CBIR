@@ -1,111 +1,301 @@
 image_name,label,path,train
-image6479.jpg,apparel,images/apparel/image6479.jpg,False
-image2791.jpg,apparel,images/apparel/image2791.jpg,False
-image9608.jpg,apparel,images/apparel/image9608.jpg,False
-image26288.jpg,apparel,images/apparel/image26288.jpg,False
-image8901.jpg,apparel,images/apparel/image8901.jpg,False
-image22274.jpg,apparel,images/apparel/image22274.jpg,False
-image11106.jpg,apparel,images/apparel/image11106.jpg,False
-image7362.jpg,apparel,images/apparel/image7362.jpg,False
-image11509.jpg,apparel,images/apparel/image11509.jpg,False
-image3455.jpg,apparel,images/apparel/image3455.jpg,False
-image2018.jpeg,artwork,images/artwork/image2018.jpeg,False
-image4665.jpeg,artwork,images/artwork/image4665.jpeg,False
-image3900.jpeg,artwork,images/artwork/image3900.jpeg,False
-image0114.jpeg,artwork,images/artwork/image0114.jpeg,False
-image2379.jpeg,artwork,images/artwork/image2379.jpeg,False
-image0539.jpeg,artwork,images/artwork/image0539.jpeg,False
-image0391.jpeg,artwork,images/artwork/image0391.jpeg,False
-image0678.jpeg,artwork,images/artwork/image0678.jpeg,False
-image0124.jpeg,artwork,images/artwork/image0124.jpeg,False
-image3419.jpeg,artwork,images/artwork/image3419.jpeg,False
-image2333.jpg,cars,images/cars/image2333.jpg,False
-image7072.jpg,cars,images/cars/image7072.jpg,False
-image2050.jpg,cars,images/cars/image2050.jpg,False
-image8137.jpg,cars,images/cars/image8137.jpg,False
-image1219.jpg,cars,images/cars/image1219.jpg,False
-image2614.jpg,cars,images/cars/image2614.jpg,False
-image7637.jpg,cars,images/cars/image7637.jpg,False
-image5608.jpg,cars,images/cars/image5608.jpg,False
-image3359.jpg,cars,images/cars/image3359.jpg,False
-image1042.jpg,cars,images/cars/image1042.jpg,False
-image4663.jpeg,dishes,images/dishes/image4663.jpeg,False
-image2183.jpeg,dishes,images/dishes/image2183.jpeg,False
-image2429.jpeg,dishes,images/dishes/image2429.jpeg,False
-image4863.jpeg,dishes,images/dishes/image4863.jpeg,False
-image4022.jpeg,dishes,images/dishes/image4022.jpeg,False
-image5312.jpeg,dishes,images/dishes/image5312.jpeg,False
-image2230.jpeg,dishes,images/dishes/image2230.jpeg,False
-image4607.jpeg,dishes,images/dishes/image4607.jpeg,False
-image3748.jpeg,dishes,images/dishes/image3748.jpeg,False
-image2766.jpeg,dishes,images/dishes/image2766.jpeg,False
-image0529.jpeg,furniture,images/furniture/image0529.jpeg,False
-image5970.jpeg,furniture,images/furniture/image5970.jpeg,False
-image7366.jpeg,furniture,images/furniture/image7366.jpeg,False
-image1572.jpeg,furniture,images/furniture/image1572.jpeg,False
-image7371.jpeg,furniture,images/furniture/image7371.jpeg,False
-image3447.jpeg,furniture,images/furniture/image3447.jpeg,False
-image9210.png,furniture,images/furniture/image9210.png,False
-image7028.jpeg,furniture,images/furniture/image7028.jpeg,False
-image10307.jpeg,furniture,images/furniture/image10307.jpeg,False
-image1959.jpeg,furniture,images/furniture/image1959.jpeg,False
-image0583.jpeg,illustrations,images/illustrations/image0583.jpeg,False
-image2448.jpeg,illustrations,images/illustrations/image2448.jpeg,False
-image1650.jpeg,illustrations,images/illustrations/image1650.jpeg,False
-image2571.jpeg,illustrations,images/illustrations/image2571.jpeg,False
-image0964.jpeg,illustrations,images/illustrations/image0964.jpeg,False
-image0851.jpeg,illustrations,images/illustrations/image0851.jpeg,False
-image2897.jpeg,illustrations,images/illustrations/image2897.jpeg,False
-image0930.jpeg,illustrations,images/illustrations/image0930.jpeg,False
-image2832.jpeg,illustrations,images/illustrations/image2832.jpeg,False
-image1363.jpeg,illustrations,images/illustrations/image1363.jpeg,False
-image24492.jpg,landmark,images/landmark/image24492.jpg,False
-image26074.jpg,landmark,images/landmark/image26074.jpg,False
-image31282.jpg,landmark,images/landmark/image31282.jpg,False
-image14979.jpg,landmark,images/landmark/image14979.jpg,False
-image8716.jpg,landmark,images/landmark/image8716.jpg,False
-image28247.jpg,landmark,images/landmark/image28247.jpg,False
-image19337.jpg,landmark,images/landmark/image19337.jpg,False
-image9163.jpg,landmark,images/landmark/image9163.jpg,False
-image15147.jpg,landmark,images/landmark/image15147.jpg,False
-image15658.jpg,landmark,images/landmark/image15658.jpg,False
-image0585.jpeg,meme,images/meme/image0585.jpeg,False
-image0039.jpeg,meme,images/meme/image0039.jpeg,False
-image3253.jpeg,meme,images/meme/image3253.jpeg,False
-image3036.jpeg,meme,images/meme/image3036.jpeg,False
-image3189.jpeg,meme,images/meme/image3189.jpeg,False
-image0955.jpeg,meme,images/meme/image0955.jpeg,False
-image2846.jpeg,meme,images/meme/image2846.jpeg,False
-image2216.jpeg,meme,images/meme/image2216.jpeg,False
-image0557.jpeg,meme,images/meme/image0557.jpeg,False
-image1622.png,meme,images/meme/image1622.png,False
-image17023.jpg,packaged,images/packaged/image17023.jpg,False
-image15188.jpg,packaged,images/packaged/image15188.jpg,False
-image18786.jpg,packaged,images/packaged/image18786.jpg,False
-image6363.jpg,packaged,images/packaged/image6363.jpg,False
-image20450.jpg,packaged,images/packaged/image20450.jpg,False
-image5319.jpg,packaged,images/packaged/image5319.jpg,False
-image7356.jpg,packaged,images/packaged/image7356.jpg,False
-image0277.jpg,packaged,images/packaged/image0277.jpg,False
-image13882.jpg,packaged,images/packaged/image13882.jpg,False
-image4213.png,packaged,images/packaged/image4213.png,False
-image3269.jpeg,storefronts,images/storefronts/image3269.jpeg,False
-image3176.jpeg,storefronts,images/storefronts/image3176.jpeg,False
-image4710.jpeg,storefronts,images/storefronts/image4710.jpeg,False
-image1025.jpeg,storefronts,images/storefronts/image1025.jpeg,False
-image1670.jpeg,storefronts,images/storefronts/image1670.jpeg,False
-image2901.jpeg,storefronts,images/storefronts/image2901.jpeg,False
-image3720.png,storefronts,images/storefronts/image3720.png,False
-image1645.jpeg,storefronts,images/storefronts/image1645.jpeg,False
-image2269.jpeg,storefronts,images/storefronts/image2269.jpeg,False
-image0676.jpeg,storefronts,images/storefronts/image0676.jpeg,False
-image2028.jpeg,toys,images/toys/image2028.jpeg,False
-image1820.jpeg,toys,images/toys/image1820.jpeg,False
-image1574.jpeg,toys,images/toys/image1574.jpeg,False
-image2224.jpeg,toys,images/toys/image2224.jpeg,False
-image0209.png,toys,images/toys/image0209.png,False
-image0375.jpeg,toys,images/toys/image0375.jpeg,False
-image0354.jpeg,toys,images/toys/image0354.jpeg,False
-image0480.jpeg,toys,images/toys/image0480.jpeg,False
-image0955.jpeg,toys,images/toys/image0955.jpeg,False
-image0420.jpeg,toys,images/toys/image0420.jpeg,False
+n07720875_0.JPEG,bell pepper,images/bell pepper/n07720875_0.JPEG,False
+n07720875_100.JPEG,bell pepper,images/bell pepper/n07720875_100.JPEG,False
+n07720875_102.JPEG,bell pepper,images/bell pepper/n07720875_102.JPEG,False
+n07720875_103.JPEG,bell pepper,images/bell pepper/n07720875_103.JPEG,False
+n07720875_106.JPEG,bell pepper,images/bell pepper/n07720875_106.JPEG,False
+n07720875_109.JPEG,bell pepper,images/bell pepper/n07720875_109.JPEG,False
+n07720875_111.JPEG,bell pepper,images/bell pepper/n07720875_111.JPEG,False
+n07720875_112.JPEG,bell pepper,images/bell pepper/n07720875_112.JPEG,False
+n07720875_113.JPEG,bell pepper,images/bell pepper/n07720875_113.JPEG,False
+n07720875_114.JPEG,bell pepper,images/bell pepper/n07720875_114.JPEG,False
+n07720875_116.JPEG,bell pepper,images/bell pepper/n07720875_116.JPEG,False
+n07720875_121.JPEG,bell pepper,images/bell pepper/n07720875_121.JPEG,False
+n07720875_125.JPEG,bell pepper,images/bell pepper/n07720875_125.JPEG,False
+n07720875_129.JPEG,bell pepper,images/bell pepper/n07720875_129.JPEG,False
+n07720875_13.JPEG,bell pepper,images/bell pepper/n07720875_13.JPEG,False
+n07720875_136.JPEG,bell pepper,images/bell pepper/n07720875_136.JPEG,False
+n07720875_139.JPEG,bell pepper,images/bell pepper/n07720875_139.JPEG,False
+n07720875_141.JPEG,bell pepper,images/bell pepper/n07720875_141.JPEG,False
+n07720875_144.JPEG,bell pepper,images/bell pepper/n07720875_144.JPEG,False
+n07720875_15.JPEG,bell pepper,images/bell pepper/n07720875_15.JPEG,False
+n07720875_157.JPEG,bell pepper,images/bell pepper/n07720875_157.JPEG,False
+n07720875_159.JPEG,bell pepper,images/bell pepper/n07720875_159.JPEG,False
+n07720875_162.JPEG,bell pepper,images/bell pepper/n07720875_162.JPEG,False
+n07720875_164.JPEG,bell pepper,images/bell pepper/n07720875_164.JPEG,False
+n07720875_167.JPEG,bell pepper,images/bell pepper/n07720875_167.JPEG,False
+n07720875_168.JPEG,bell pepper,images/bell pepper/n07720875_168.JPEG,False
+n07720875_17.JPEG,bell pepper,images/bell pepper/n07720875_17.JPEG,False
+n07720875_171.JPEG,bell pepper,images/bell pepper/n07720875_171.JPEG,False
+n07720875_173.JPEG,bell pepper,images/bell pepper/n07720875_173.JPEG,False
+n07720875_184.JPEG,bell pepper,images/bell pepper/n07720875_184.JPEG,False
+n02132136_101.JPEG,brown bear,images/brown bear/n02132136_101.JPEG,False
+n02132136_102.JPEG,brown bear,images/brown bear/n02132136_102.JPEG,False
+n02132136_103.JPEG,brown bear,images/brown bear/n02132136_103.JPEG,False
+n02132136_104.JPEG,brown bear,images/brown bear/n02132136_104.JPEG,False
+n02132136_107.JPEG,brown bear,images/brown bear/n02132136_107.JPEG,False
+n02132136_11.JPEG,brown bear,images/brown bear/n02132136_11.JPEG,False
+n02132136_112.JPEG,brown bear,images/brown bear/n02132136_112.JPEG,False
+n02132136_113.JPEG,brown bear,images/brown bear/n02132136_113.JPEG,False
+n02132136_117.JPEG,brown bear,images/brown bear/n02132136_117.JPEG,False
+n02132136_122.JPEG,brown bear,images/brown bear/n02132136_122.JPEG,False
+n02132136_124.JPEG,brown bear,images/brown bear/n02132136_124.JPEG,False
+n02132136_126.JPEG,brown bear,images/brown bear/n02132136_126.JPEG,False
+n02132136_128.JPEG,brown bear,images/brown bear/n02132136_128.JPEG,False
+n02132136_130.JPEG,brown bear,images/brown bear/n02132136_130.JPEG,False
+n02132136_131.JPEG,brown bear,images/brown bear/n02132136_131.JPEG,False
+n02132136_133.JPEG,brown bear,images/brown bear/n02132136_133.JPEG,False
+n02132136_136.JPEG,brown bear,images/brown bear/n02132136_136.JPEG,False
+n02132136_138.JPEG,brown bear,images/brown bear/n02132136_138.JPEG,False
+n02132136_142.JPEG,brown bear,images/brown bear/n02132136_142.JPEG,False
+n02132136_143.JPEG,brown bear,images/brown bear/n02132136_143.JPEG,False
+n02132136_145.JPEG,brown bear,images/brown bear/n02132136_145.JPEG,False
+n02132136_147.JPEG,brown bear,images/brown bear/n02132136_147.JPEG,False
+n02132136_149.JPEG,brown bear,images/brown bear/n02132136_149.JPEG,False
+n02132136_154.JPEG,brown bear,images/brown bear/n02132136_154.JPEG,False
+n02132136_159.JPEG,brown bear,images/brown bear/n02132136_159.JPEG,False
+n02132136_166.JPEG,brown bear,images/brown bear/n02132136_166.JPEG,False
+n02132136_167.JPEG,brown bear,images/brown bear/n02132136_167.JPEG,False
+n02132136_168.JPEG,brown bear,images/brown bear/n02132136_168.JPEG,False
+n02132136_173.JPEG,brown bear,images/brown bear/n02132136_173.JPEG,False
+n02132136_183.JPEG,brown bear,images/brown bear/n02132136_183.JPEG,False
+n02909870_101.JPEG,bucket,images/bucket/n02909870_101.JPEG,False
+n02909870_102.JPEG,bucket,images/bucket/n02909870_102.JPEG,False
+n02909870_104.JPEG,bucket,images/bucket/n02909870_104.JPEG,False
+n02909870_105.JPEG,bucket,images/bucket/n02909870_105.JPEG,False
+n02909870_106.JPEG,bucket,images/bucket/n02909870_106.JPEG,False
+n02909870_114.JPEG,bucket,images/bucket/n02909870_114.JPEG,False
+n02909870_115.JPEG,bucket,images/bucket/n02909870_115.JPEG,False
+n02909870_116.JPEG,bucket,images/bucket/n02909870_116.JPEG,False
+n02909870_120.JPEG,bucket,images/bucket/n02909870_120.JPEG,False
+n02909870_128.JPEG,bucket,images/bucket/n02909870_128.JPEG,False
+n02909870_130.JPEG,bucket,images/bucket/n02909870_130.JPEG,False
+n02909870_132.JPEG,bucket,images/bucket/n02909870_132.JPEG,False
+n02909870_140.JPEG,bucket,images/bucket/n02909870_140.JPEG,False
+n02909870_142.JPEG,bucket,images/bucket/n02909870_142.JPEG,False
+n02909870_146.JPEG,bucket,images/bucket/n02909870_146.JPEG,False
+n02909870_147.JPEG,bucket,images/bucket/n02909870_147.JPEG,False
+n02909870_149.JPEG,bucket,images/bucket/n02909870_149.JPEG,False
+n02909870_150.JPEG,bucket,images/bucket/n02909870_150.JPEG,False
+n02909870_155.JPEG,bucket,images/bucket/n02909870_155.JPEG,False
+n02909870_157.JPEG,bucket,images/bucket/n02909870_157.JPEG,False
+n02909870_159.JPEG,bucket,images/bucket/n02909870_159.JPEG,False
+n02909870_160.JPEG,bucket,images/bucket/n02909870_160.JPEG,False
+n02909870_164.JPEG,bucket,images/bucket/n02909870_164.JPEG,False
+n02909870_169.JPEG,bucket,images/bucket/n02909870_169.JPEG,False
+n02909870_17.JPEG,bucket,images/bucket/n02909870_17.JPEG,False
+n02909870_172.JPEG,bucket,images/bucket/n02909870_172.JPEG,False
+n02909870_173.JPEG,bucket,images/bucket/n02909870_173.JPEG,False
+n02909870_174.JPEG,bucket,images/bucket/n02909870_174.JPEG,False
+n02909870_183.JPEG,bucket,images/bucket/n02909870_183.JPEG,False
+n02909870_188.JPEG,bucket,images/bucket/n02909870_188.JPEG,False
+n01641577_10.JPEG,bullfrog,images/bullfrog/n01641577_10.JPEG,False
+n01641577_101.JPEG,bullfrog,images/bullfrog/n01641577_101.JPEG,False
+n01641577_105.JPEG,bullfrog,images/bullfrog/n01641577_105.JPEG,False
+n01641577_110.JPEG,bullfrog,images/bullfrog/n01641577_110.JPEG,False
+n01641577_111.JPEG,bullfrog,images/bullfrog/n01641577_111.JPEG,False
+n01641577_114.JPEG,bullfrog,images/bullfrog/n01641577_114.JPEG,False
+n01641577_124.JPEG,bullfrog,images/bullfrog/n01641577_124.JPEG,False
+n01641577_128.JPEG,bullfrog,images/bullfrog/n01641577_128.JPEG,False
+n01641577_131.JPEG,bullfrog,images/bullfrog/n01641577_131.JPEG,False
+n01641577_135.JPEG,bullfrog,images/bullfrog/n01641577_135.JPEG,False
+n01641577_138.JPEG,bullfrog,images/bullfrog/n01641577_138.JPEG,False
+n01641577_140.JPEG,bullfrog,images/bullfrog/n01641577_140.JPEG,False
+n01641577_144.JPEG,bullfrog,images/bullfrog/n01641577_144.JPEG,False
+n01641577_146.JPEG,bullfrog,images/bullfrog/n01641577_146.JPEG,False
+n01641577_148.JPEG,bullfrog,images/bullfrog/n01641577_148.JPEG,False
+n01641577_153.JPEG,bullfrog,images/bullfrog/n01641577_153.JPEG,False
+n01641577_155.JPEG,bullfrog,images/bullfrog/n01641577_155.JPEG,False
+n01641577_157.JPEG,bullfrog,images/bullfrog/n01641577_157.JPEG,False
+n01641577_160.JPEG,bullfrog,images/bullfrog/n01641577_160.JPEG,False
+n01641577_164.JPEG,bullfrog,images/bullfrog/n01641577_164.JPEG,False
+n01641577_166.JPEG,bullfrog,images/bullfrog/n01641577_166.JPEG,False
+n01641577_167.JPEG,bullfrog,images/bullfrog/n01641577_167.JPEG,False
+n01641577_168.JPEG,bullfrog,images/bullfrog/n01641577_168.JPEG,False
+n01641577_170.JPEG,bullfrog,images/bullfrog/n01641577_170.JPEG,False
+n01641577_171.JPEG,bullfrog,images/bullfrog/n01641577_171.JPEG,False
+n01641577_173.JPEG,bullfrog,images/bullfrog/n01641577_173.JPEG,False
+n01641577_174.JPEG,bullfrog,images/bullfrog/n01641577_174.JPEG,False
+n01641577_175.JPEG,bullfrog,images/bullfrog/n01641577_175.JPEG,False
+n01641577_176.JPEG,bullfrog,images/bullfrog/n01641577_176.JPEG,False
+n01641577_181.JPEG,bullfrog,images/bullfrog/n01641577_181.JPEG,False
+n07920052_0.JPEG,espresso,images/espresso/n07920052_0.JPEG,False
+n07920052_100.JPEG,espresso,images/espresso/n07920052_100.JPEG,False
+n07920052_104.JPEG,espresso,images/espresso/n07920052_104.JPEG,False
+n07920052_105.JPEG,espresso,images/espresso/n07920052_105.JPEG,False
+n07920052_107.JPEG,espresso,images/espresso/n07920052_107.JPEG,False
+n07920052_110.JPEG,espresso,images/espresso/n07920052_110.JPEG,False
+n07920052_111.JPEG,espresso,images/espresso/n07920052_111.JPEG,False
+n07920052_115.JPEG,espresso,images/espresso/n07920052_115.JPEG,False
+n07920052_116.JPEG,espresso,images/espresso/n07920052_116.JPEG,False
+n07920052_119.JPEG,espresso,images/espresso/n07920052_119.JPEG,False
+n07920052_121.JPEG,espresso,images/espresso/n07920052_121.JPEG,False
+n07920052_125.JPEG,espresso,images/espresso/n07920052_125.JPEG,False
+n07920052_128.JPEG,espresso,images/espresso/n07920052_128.JPEG,False
+n07920052_129.JPEG,espresso,images/espresso/n07920052_129.JPEG,False
+n07920052_130.JPEG,espresso,images/espresso/n07920052_130.JPEG,False
+n07920052_133.JPEG,espresso,images/espresso/n07920052_133.JPEG,False
+n07920052_135.JPEG,espresso,images/espresso/n07920052_135.JPEG,False
+n07920052_138.JPEG,espresso,images/espresso/n07920052_138.JPEG,False
+n07920052_139.JPEG,espresso,images/espresso/n07920052_139.JPEG,False
+n07920052_140.JPEG,espresso,images/espresso/n07920052_140.JPEG,False
+n07920052_145.JPEG,espresso,images/espresso/n07920052_145.JPEG,False
+n07920052_152.JPEG,espresso,images/espresso/n07920052_152.JPEG,False
+n07920052_153.JPEG,espresso,images/espresso/n07920052_153.JPEG,False
+n07920052_155.JPEG,espresso,images/espresso/n07920052_155.JPEG,False
+n07920052_156.JPEG,espresso,images/espresso/n07920052_156.JPEG,False
+n07920052_161.JPEG,espresso,images/espresso/n07920052_161.JPEG,False
+n07920052_167.JPEG,espresso,images/espresso/n07920052_167.JPEG,False
+n07920052_183.JPEG,espresso,images/espresso/n07920052_183.JPEG,False
+n07920052_184.JPEG,espresso,images/espresso/n07920052_184.JPEG,False
+n07920052_185.JPEG,espresso,images/espresso/n07920052_185.JPEG,False
+n07749582_10.JPEG,lemon,images/lemon/n07749582_10.JPEG,False
+n07749582_101.JPEG,lemon,images/lemon/n07749582_101.JPEG,False
+n07749582_105.JPEG,lemon,images/lemon/n07749582_105.JPEG,False
+n07749582_108.JPEG,lemon,images/lemon/n07749582_108.JPEG,False
+n07749582_11.JPEG,lemon,images/lemon/n07749582_11.JPEG,False
+n07749582_111.JPEG,lemon,images/lemon/n07749582_111.JPEG,False
+n07749582_119.JPEG,lemon,images/lemon/n07749582_119.JPEG,False
+n07749582_120.JPEG,lemon,images/lemon/n07749582_120.JPEG,False
+n07749582_121.JPEG,lemon,images/lemon/n07749582_121.JPEG,False
+n07749582_125.JPEG,lemon,images/lemon/n07749582_125.JPEG,False
+n07749582_128.JPEG,lemon,images/lemon/n07749582_128.JPEG,False
+n07749582_134.JPEG,lemon,images/lemon/n07749582_134.JPEG,False
+n07749582_135.JPEG,lemon,images/lemon/n07749582_135.JPEG,False
+n07749582_14.JPEG,lemon,images/lemon/n07749582_14.JPEG,False
+n07749582_147.JPEG,lemon,images/lemon/n07749582_147.JPEG,False
+n07749582_150.JPEG,lemon,images/lemon/n07749582_150.JPEG,False
+n07749582_152.JPEG,lemon,images/lemon/n07749582_152.JPEG,False
+n07749582_154.JPEG,lemon,images/lemon/n07749582_154.JPEG,False
+n07749582_157.JPEG,lemon,images/lemon/n07749582_157.JPEG,False
+n07749582_16.JPEG,lemon,images/lemon/n07749582_16.JPEG,False
+n07749582_161.JPEG,lemon,images/lemon/n07749582_161.JPEG,False
+n07749582_168.JPEG,lemon,images/lemon/n07749582_168.JPEG,False
+n07749582_169.JPEG,lemon,images/lemon/n07749582_169.JPEG,False
+n07749582_17.JPEG,lemon,images/lemon/n07749582_17.JPEG,False
+n07749582_170.JPEG,lemon,images/lemon/n07749582_170.JPEG,False
+n07749582_175.JPEG,lemon,images/lemon/n07749582_175.JPEG,False
+n07749582_18.JPEG,lemon,images/lemon/n07749582_18.JPEG,False
+n07749582_183.JPEG,lemon,images/lemon/n07749582_183.JPEG,False
+n07749582_185.JPEG,lemon,images/lemon/n07749582_185.JPEG,False
+n07749582_186.JPEG,lemon,images/lemon/n07749582_186.JPEG,False
+n04146614_101.JPEG,school bus,images/school bus/n04146614_101.JPEG,False
+n04146614_105.JPEG,school bus,images/school bus/n04146614_105.JPEG,False
+n04146614_108.JPEG,school bus,images/school bus/n04146614_108.JPEG,False
+n04146614_110.JPEG,school bus,images/school bus/n04146614_110.JPEG,False
+n04146614_115.JPEG,school bus,images/school bus/n04146614_115.JPEG,False
+n04146614_116.JPEG,school bus,images/school bus/n04146614_116.JPEG,False
+n04146614_123.JPEG,school bus,images/school bus/n04146614_123.JPEG,False
+n04146614_126.JPEG,school bus,images/school bus/n04146614_126.JPEG,False
+n04146614_128.JPEG,school bus,images/school bus/n04146614_128.JPEG,False
+n04146614_130.JPEG,school bus,images/school bus/n04146614_130.JPEG,False
+n04146614_131.JPEG,school bus,images/school bus/n04146614_131.JPEG,False
+n04146614_132.JPEG,school bus,images/school bus/n04146614_132.JPEG,False
+n04146614_141.JPEG,school bus,images/school bus/n04146614_141.JPEG,False
+n04146614_143.JPEG,school bus,images/school bus/n04146614_143.JPEG,False
+n04146614_145.JPEG,school bus,images/school bus/n04146614_145.JPEG,False
+n04146614_147.JPEG,school bus,images/school bus/n04146614_147.JPEG,False
+n04146614_148.JPEG,school bus,images/school bus/n04146614_148.JPEG,False
+n04146614_157.JPEG,school bus,images/school bus/n04146614_157.JPEG,False
+n04146614_158.JPEG,school bus,images/school bus/n04146614_158.JPEG,False
+n04146614_16.JPEG,school bus,images/school bus/n04146614_16.JPEG,False
+n04146614_161.JPEG,school bus,images/school bus/n04146614_161.JPEG,False
+n04146614_168.JPEG,school bus,images/school bus/n04146614_168.JPEG,False
+n04146614_169.JPEG,school bus,images/school bus/n04146614_169.JPEG,False
+n04146614_171.JPEG,school bus,images/school bus/n04146614_171.JPEG,False
+n04146614_172.JPEG,school bus,images/school bus/n04146614_172.JPEG,False
+n04146614_175.JPEG,school bus,images/school bus/n04146614_175.JPEG,False
+n04146614_181.JPEG,school bus,images/school bus/n04146614_181.JPEG,False
+n04146614_183.JPEG,school bus,images/school bus/n04146614_183.JPEG,False
+n04146614_187.JPEG,school bus,images/school bus/n04146614_187.JPEG,False
+n04146614_188.JPEG,school bus,images/school bus/n04146614_188.JPEG,False
+n03983396_10.JPEG,soda bottle,images/soda bottle/n03983396_10.JPEG,False
+n03983396_105.JPEG,soda bottle,images/soda bottle/n03983396_105.JPEG,False
+n03983396_106.JPEG,soda bottle,images/soda bottle/n03983396_106.JPEG,False
+n03983396_109.JPEG,soda bottle,images/soda bottle/n03983396_109.JPEG,False
+n03983396_11.JPEG,soda bottle,images/soda bottle/n03983396_11.JPEG,False
+n03983396_115.JPEG,soda bottle,images/soda bottle/n03983396_115.JPEG,False
+n03983396_116.JPEG,soda bottle,images/soda bottle/n03983396_116.JPEG,False
+n03983396_117.JPEG,soda bottle,images/soda bottle/n03983396_117.JPEG,False
+n03983396_119.JPEG,soda bottle,images/soda bottle/n03983396_119.JPEG,False
+n03983396_12.JPEG,soda bottle,images/soda bottle/n03983396_12.JPEG,False
+n03983396_122.JPEG,soda bottle,images/soda bottle/n03983396_122.JPEG,False
+n03983396_134.JPEG,soda bottle,images/soda bottle/n03983396_134.JPEG,False
+n03983396_139.JPEG,soda bottle,images/soda bottle/n03983396_139.JPEG,False
+n03983396_140.JPEG,soda bottle,images/soda bottle/n03983396_140.JPEG,False
+n03983396_142.JPEG,soda bottle,images/soda bottle/n03983396_142.JPEG,False
+n03983396_144.JPEG,soda bottle,images/soda bottle/n03983396_144.JPEG,False
+n03983396_146.JPEG,soda bottle,images/soda bottle/n03983396_146.JPEG,False
+n03983396_148.JPEG,soda bottle,images/soda bottle/n03983396_148.JPEG,False
+n03983396_15.JPEG,soda bottle,images/soda bottle/n03983396_15.JPEG,False
+n03983396_159.JPEG,soda bottle,images/soda bottle/n03983396_159.JPEG,False
+n03983396_16.JPEG,soda bottle,images/soda bottle/n03983396_16.JPEG,False
+n03983396_164.JPEG,soda bottle,images/soda bottle/n03983396_164.JPEG,False
+n03983396_167.JPEG,soda bottle,images/soda bottle/n03983396_167.JPEG,False
+n03983396_168.JPEG,soda bottle,images/soda bottle/n03983396_168.JPEG,False
+n03983396_170.JPEG,soda bottle,images/soda bottle/n03983396_170.JPEG,False
+n03983396_172.JPEG,soda bottle,images/soda bottle/n03983396_172.JPEG,False
+n03983396_173.JPEG,soda bottle,images/soda bottle/n03983396_173.JPEG,False
+n03983396_176.JPEG,soda bottle,images/soda bottle/n03983396_176.JPEG,False
+n03983396_178.JPEG,soda bottle,images/soda bottle/n03983396_178.JPEG,False
+n03983396_181.JPEG,soda bottle,images/soda bottle/n03983396_181.JPEG,False
+n04285008_0.JPEG,sports car,images/sports car/n04285008_0.JPEG,False
+n04285008_1.JPEG,sports car,images/sports car/n04285008_1.JPEG,False
+n04285008_10.JPEG,sports car,images/sports car/n04285008_10.JPEG,False
+n04285008_102.JPEG,sports car,images/sports car/n04285008_102.JPEG,False
+n04285008_113.JPEG,sports car,images/sports car/n04285008_113.JPEG,False
+n04285008_118.JPEG,sports car,images/sports car/n04285008_118.JPEG,False
+n04285008_119.JPEG,sports car,images/sports car/n04285008_119.JPEG,False
+n04285008_121.JPEG,sports car,images/sports car/n04285008_121.JPEG,False
+n04285008_123.JPEG,sports car,images/sports car/n04285008_123.JPEG,False
+n04285008_124.JPEG,sports car,images/sports car/n04285008_124.JPEG,False
+n04285008_126.JPEG,sports car,images/sports car/n04285008_126.JPEG,False
+n04285008_132.JPEG,sports car,images/sports car/n04285008_132.JPEG,False
+n04285008_135.JPEG,sports car,images/sports car/n04285008_135.JPEG,False
+n04285008_138.JPEG,sports car,images/sports car/n04285008_138.JPEG,False
+n04285008_141.JPEG,sports car,images/sports car/n04285008_141.JPEG,False
+n04285008_142.JPEG,sports car,images/sports car/n04285008_142.JPEG,False
+n04285008_145.JPEG,sports car,images/sports car/n04285008_145.JPEG,False
+n04285008_146.JPEG,sports car,images/sports car/n04285008_146.JPEG,False
+n04285008_148.JPEG,sports car,images/sports car/n04285008_148.JPEG,False
+n04285008_150.JPEG,sports car,images/sports car/n04285008_150.JPEG,False
+n04285008_151.JPEG,sports car,images/sports car/n04285008_151.JPEG,False
+n04285008_156.JPEG,sports car,images/sports car/n04285008_156.JPEG,False
+n04285008_16.JPEG,sports car,images/sports car/n04285008_16.JPEG,False
+n04285008_160.JPEG,sports car,images/sports car/n04285008_160.JPEG,False
+n04285008_165.JPEG,sports car,images/sports car/n04285008_165.JPEG,False
+n04285008_166.JPEG,sports car,images/sports car/n04285008_166.JPEG,False
+n04285008_170.JPEG,sports car,images/sports car/n04285008_170.JPEG,False
+n04285008_175.JPEG,sports car,images/sports car/n04285008_175.JPEG,False
+n04285008_182.JPEG,sports car,images/sports car/n04285008_182.JPEG,False
+n04285008_185.JPEG,sports car,images/sports car/n04285008_185.JPEG,False
+n01774750_10.JPEG,tarantula,images/tarantula/n01774750_10.JPEG,False
+n01774750_100.JPEG,tarantula,images/tarantula/n01774750_100.JPEG,False
+n01774750_101.JPEG,tarantula,images/tarantula/n01774750_101.JPEG,False
+n01774750_105.JPEG,tarantula,images/tarantula/n01774750_105.JPEG,False
+n01774750_106.JPEG,tarantula,images/tarantula/n01774750_106.JPEG,False
+n01774750_107.JPEG,tarantula,images/tarantula/n01774750_107.JPEG,False
+n01774750_111.JPEG,tarantula,images/tarantula/n01774750_111.JPEG,False
+n01774750_114.JPEG,tarantula,images/tarantula/n01774750_114.JPEG,False
+n01774750_118.JPEG,tarantula,images/tarantula/n01774750_118.JPEG,False
+n01774750_119.JPEG,tarantula,images/tarantula/n01774750_119.JPEG,False
+n01774750_122.JPEG,tarantula,images/tarantula/n01774750_122.JPEG,False
+n01774750_126.JPEG,tarantula,images/tarantula/n01774750_126.JPEG,False
+n01774750_127.JPEG,tarantula,images/tarantula/n01774750_127.JPEG,False
+n01774750_128.JPEG,tarantula,images/tarantula/n01774750_128.JPEG,False
+n01774750_131.JPEG,tarantula,images/tarantula/n01774750_131.JPEG,False
+n01774750_133.JPEG,tarantula,images/tarantula/n01774750_133.JPEG,False
+n01774750_135.JPEG,tarantula,images/tarantula/n01774750_135.JPEG,False
+n01774750_141.JPEG,tarantula,images/tarantula/n01774750_141.JPEG,False
+n01774750_142.JPEG,tarantula,images/tarantula/n01774750_142.JPEG,False
+n01774750_148.JPEG,tarantula,images/tarantula/n01774750_148.JPEG,False
+n01774750_149.JPEG,tarantula,images/tarantula/n01774750_149.JPEG,False
+n01774750_150.JPEG,tarantula,images/tarantula/n01774750_150.JPEG,False
+n01774750_151.JPEG,tarantula,images/tarantula/n01774750_151.JPEG,False
+n01774750_152.JPEG,tarantula,images/tarantula/n01774750_152.JPEG,False
+n01774750_158.JPEG,tarantula,images/tarantula/n01774750_158.JPEG,False
+n01774750_159.JPEG,tarantula,images/tarantula/n01774750_159.JPEG,False
+n01774750_169.JPEG,tarantula,images/tarantula/n01774750_169.JPEG,False
+n01774750_170.JPEG,tarantula,images/tarantula/n01774750_170.JPEG,False
+n01774750_173.JPEG,tarantula,images/tarantula/n01774750_173.JPEG,False
+n01774750_179.JPEG,tarantula,images/tarantula/n01774750_179.JPEG,False
