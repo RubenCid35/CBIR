@@ -5,7 +5,7 @@ import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 
-from dash import State, Input, Output, MATCH, ALL, ctx
+from dash import State, Input, Output, MATCH, ALL, ctx, ClientsideFunction
 
 from utils.utils import load_images
 from .AlgorithmModal import algorithm_callbacks, algoritm_modal
@@ -17,6 +17,20 @@ NO_IMAGE_ICON: str = r"https://img.freepik.com/premium-vector/default-image-icon
 # Load Test Image DataFrame
 TEST_IMAGES, _ = load_images(False)
 TEST_IMAGES = TEST_IMAGES# .sample(n = 40)
+
+
+DEFAULT = { 
+  "method": "sift",
+  "config": {
+    "octaves": 4,
+    "contrast": 0.05
+  },
+  "vocab": {
+    "enable": False,
+    "bins": 50
+  }
+}
+
 
 # Searh / Algorithm Adjust Zone
 adjust = html.Div([
@@ -34,7 +48,8 @@ visual_zone = html.Div([
     ], className="w-[70%] mx-auto my-[10px] pt-5"),
 
     dcc.Store(id = "query-image-data", storage_type = "memory", data = {"uri": NO_IMAGE_ICON, "label": None}),
-    dcc.Store(id = "algo-data", storage_type = "session", data = {"uri": NO_IMAGE_ICON, "label": None})
+    dcc.Store(id = "algo-data", storage_type = "session", data = DEFAULT),
+    dcc.Store(id = "algo-data-paths", storage_type = "session", data = ("sift-1b7852b855.csv", None))
 ], className="rounded-md border-gray-400 border-[2px] py-[10px]")
 
 # Modal
@@ -58,7 +73,7 @@ change_image_modal = html.Div([
     
     html.Div(
         [generate_image_button(row, i) for i, row in enumerate(TEST_IMAGES["path"]) ],
-        className = "grid grid-cols-6 gap-5 mt-5 mx-5 h-[80%] overflow-scroll"
+        className = "grid big:grid-cols-10 grid-cols-6 gap-5 mt-5 mx-5 h-[80%] overflow-scroll"
     ),
     
     html.Div([
@@ -73,45 +88,25 @@ change_image_modal = html.Div([
 def input_callbacks(app: dash.Dash):
 
     algorithm_callbacks(app)
+    app.clientside_callback(
+        ClientsideFunction('clientselect', 'input_image_select'),
+        [   Output("query-image-data", "data"),
+            Output("image-input-modal", "hidden"),
+            Output("query-image-visual", "src")
+        ],
+        [
+            Input("change-image-btn", "n_clicks"),
+            Input("close-input-btn", "n_clicks"),
+            Input({"type": "query-image-select-btn", "index": ALL}, "n_clicks"),
 
-    @app.callback(
-
-        Output("query-image-data", "data"),
-        Output("image-input-modal", "hidden"),
-        Output("query-image-visual", "src"),
-
-        Input("change-image-btn", "n_clicks"),
-        Input("close-input-btn", "n_clicks"),
-        Input({"type": "query-image-select-btn", "index": ALL}, "n_clicks"),
-
-        State("image-input-modal", "hidden"),
-        State({"type": "query-image-select-btn", "index": ALL}, "children"),
-        State({"type": "query-image-select-btn", "index": ALL}, "id"),
-        State("query-image-data", "data"),
-
+            State("image-input-modal", "hidden"),
+            State({"type": "query-image-select-btn", "index": ALL}, "children"),
+            State({"type": "query-image-select-btn", "index": ALL}, "id"),
+            State("query-image-data", "data"),
+        ],
         prevent_initial_call = True
+
     )
-    def active_input_modal(_open, _close, _select, is_closed, select_content, select_id, loaded_image):
-
-        if not is_closed:
-            activated = ctx.triggered_id
-            if activated == 'close-input-btn': 
-                print("nothing")
-                return loaded_image, not is_closed, loaded_image['uri']
-            
-            n_img = activated['index']
-
-            new_load = {
-                "uri": select_content[n_img][0]['props']['src'],
-                "label": "none"
-            }
-
-            return new_load, not is_closed, new_load['uri']
-        else:
-            return loaded_image, not is_closed, loaded_image['uri']
-
-    
-
 
 
 # Input Zone

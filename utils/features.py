@@ -72,8 +72,8 @@ def save_features(features, index, meta, filename):
     descs_save = pd.merge(descs, meta, how = "inner", left_on = "image_id", right_on = "image_id").drop(["train", "image_name", "label", "path"], axis = 1)
     descs_save.to_csv(f"../features/{filename}.csv", index = False)
 
-def load_features(path: str):
-    df = pd.read_csv(path)
+def load_features(path: str, index = False):
+    df = pd.read_csv(path, index_col = 0 if index else None)
     images_paths = df[['image_id', 'label_id']]
     
     features = df.drop(['image_id', 'label_id'], axis = 1).values

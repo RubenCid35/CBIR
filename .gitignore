@@ -6,3 +6,5 @@ archive(1)/*
 
 __pycache__/*
 __pycache__
+
+app/cache

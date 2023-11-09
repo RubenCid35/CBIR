@@ -1,4 +1,5 @@
 
+import os
 import cv2
 import numpy  as np
 import pandas as pd
@@ -20,7 +21,15 @@ from hashlib import sha256
 TRAIN_META, TRAIN_IMAGES = load_images(True)
 TEST_META, TEST_IMAGES = load_images(False)
 
+def normalize_hist(vector):
+    return vector / np.linalg.norm(vector)
 
+def check_features_file(save_name):
+    def check_name(file_name):
+        file_name = file_name.split(".")[0]
+        return save_name == file_name
+    return any(map(check_name, os.listdir('../features')))
+        
 def sift_descriptor(image, octaves: int = 8, thress: float = 0.1):
     orb = cv2.SIFT_create(nfeatures = 50,  nOctaveLayers = octaves, contrastThreshold = thress, edgeThreshold = 10, sigma = 1.6  )
     img = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
@@ -34,18 +43,14 @@ def orb_descriptor(image, wta = 4, score = cv2.ORB_HARRIS_SCORE):
     return descs
 
 def cch_descriptor(image, bins = 32):
-    rbin = normalize(np.histogram(image[:, :, 0], bins = bins, range = [0, 255])[1])
-    gbin = normalize(np.histogram(image[:, :, 1], bins = bins, range = [0, 255])[1])
-    bbin = normalize(np.histogram(image[:, :, 2], bins = bins, range = [0, 255])[1])
+    rbin = normalize_hist(np.histogram(image[:, :, 0], bins = bins, range = [0, 255])[1])
+    gbin = normalize_hist(np.histogram(image[:, :, 1], bins = bins, range = [0, 255])[1])
+    bbin = normalize_hist(np.histogram(image[:, :, 2], bins = bins, range = [0, 255])[1])
 
     return np.concatenate([rbin, gbin, bbin], axis = 0).reshape(1, -1).astype(np.float32) # Un Vector con solo columnas
 
-
-def train(algo, images, save = True):
-    # Extract Features
+def prepare_extraction(algo):
     algo_name = algo['method']
-    config_phrase = dumps(algo['config'], sort_keys=True).encode('utf-8')
-    config_phrase = sha256().hexdigest()
     if algo_name == 'sift':
         algorithm = partial(sift_descriptor, octaves = algo['config']['octaves'], thress = algo['config']['contrast'])
     elif algo_name == 'orb':
@@ -60,20 +65,37 @@ def train(algo, images, save = True):
         algorithm = sift_descriptor # partial(sift_descriptor, octaves = algo['config']['octaves'], thress = algo['config']['contrast'])
         config_phrase = ""
 
+    return algorithm
+
+def train(algo, images, save = True):
+    # Extract Features
+    algo_name = algo['method']
+    config_phrase = dumps(algo['config'], sort_keys=True).encode('utf-8')
+    config_phrase = sha256().hexdigest()
+
+    print(algo_name, dumps(algo['config'], sort_keys=True), dumps(algo['vocab']))
+    algorithm = prepare_extraction(algo)
+    
+    save_name = algo_name + "-" + config_phrase[-10:]
+    if algo['vocab']['bins']:
+        vocab_bin = algo['vocab']['bins']
+        save_name = save_name + "-vocab-" + str(vocab_bin)
+
+    if check_features_file(save_name): 
+        if not algo['vocab']['bins']:
+            return ('../features/' + save_name + '.csv', None)
+        else: 
+            return ('../features/' + save_name + '.csv', '../model/' + save_name + '.sav')
+    
+    save_name_model = None
+
     descriptores, index = extract_features(algorithm, images, min_features=3)
-
-    save_name = algo_name + "-" + config_phrase
-
     # Vocab
     vocab_on  = algo['vocab']['enable']
-    print(save_name)
     if vocab_on:
         vocab_bin = algo['vocab']['bins']
-        
-        save_name = save_name + "-vocab-" + str(vocab_bin)
-        print(save_name)
 
-        vocab_model = KMeans(n_clusters=vocab_bin)
+        vocab_model = KMeans(n_clusters=vocab_bin, init = 'k-means++', random_state = 20010)
         vocab_model = vocab_model.fit(descriptores)
         descriptores = vocab_model.predict(descriptores)
 
@@ -82,24 +104,27 @@ def train(algo, images, save = True):
             if item not in idxs: idxs[item] = []
             idxs[item].append(i)
         
-        print(save_name)
         pairs = {}
         for image_id, idx in idxs.items():
-            # TODO Fix
-            vocab = vocab_model.predict(descriptores[idx])
+            vocab = descriptores[idx]
             vocab = np.bincount(vocab, minlength=vocab_bin)
             pairs[image_id] = normalize( vocab.reshape((1, -1)) ).reshape((-1))
 
-        if save:
-            print(save_name)
-            dump(vocab_model, save_name + "-model.gpickle")        
-
         ret = pd.DataFrame.from_dict(pairs, orient = 'index')
+        if save:
+            save_name_model = save_name + "-model.sav"
+            dump(vocab_model, open("../model/" + save_name_model, 'wb'))        
+
+            ret['image_id'] = ret.index
+            ret['label_id'] = 0 # Not used
+            ret.to_csv("../features/" + save_name + ".csv")
 
     else:
         ret = pd.DataFrame(descriptores)
         ret['image_id'] = index
+        ret['label_id'] = 0 # Not used
 
-    print(ret.head())
+        if save: ret.to_csv("../features/" + save_name + ".csv")
 
-    return ret
+
+    return save_name + '.csv', save_name_model
