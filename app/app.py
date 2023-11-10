@@ -45,6 +45,10 @@ from components.RetCard import output_card, output_callbacks
 
 app.layout = html.Div([
     html.Script(src = "https://cdn.tailwindcss.com"),
+    dcc.ConfirmDialog(
+        id = 'alert-no-relevant',
+        message = "No se pudo extraer características de esta imagen"
+    ),
     # Header
     header_layout,
     # Image Query + Stats
@@ -64,4 +68,4 @@ output_callbacks(app)
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=False)

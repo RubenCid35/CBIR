@@ -31,6 +31,8 @@ def recommend(query_image, algo, train_desc_path, train_model_path):
     print("ALGORITHM:", dumps(algo))
     extraction = prepare_extraction(algo)
     features = extraction(query_image)
+    if features is None: return None
+
     if algo['vocab']['enable']:
         vocabulary = load(open('../model/' + train_model_path, 'rb'))    
         words = vocabulary.predict(features)
