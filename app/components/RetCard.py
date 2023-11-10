@@ -35,25 +35,35 @@ def output_callbacks(app: dash.Dash):
     )
 
     @app.long_callback(
-        Output("result-images-div", 'children'),
+        [
+            Output("result-images-div", 'children'),
+            Output('alert-no-relevant', 'displayed'),
+            Output("query-image-data", 'data', allow_duplicate=True),
+            Output("query-image-visual", 'src', allow_duplicate=True)
+        ],
         inputs = [
             Input("search-relevant-images-btn", 'n_clicks'),
             State("query-image-data", 'data'),
             State("algo-data", 'data'),
-            State("algo-data-paths", 'data')
+            State("algo-data-paths", 'data'),
+            State("query-image-visual", 'src')
+
         ],
         running= [(Output('search-relevant-images-btn', 'disabled'), True, False)],
         prevent_initial_call = True
     )
-    def search_recommendations(btn, image_path, algo, paths):
+    def search_recommendations(btn, image_path, algo, paths, image):
+        if image == NO_IMAGE_ICON: return [], True, image_path, image
+
         query = image_path['uri'].replace('/assets/', '../')
         relevant = recommend(query, algo, paths[0], paths[1])
+        if relevant is None: return [], True, NO_IMAGE_ICON, NO_IMAGE_ICON
         images = TRAIN_META.iloc[relevant]['path']
         ret = []
         for i, img in enumerate(images):
             btn_image = generate_image_button(img, i)
             ret.append(btn_image)
-        return ret
+        return ret, False, image_path, image
 
 
 def populate_images():

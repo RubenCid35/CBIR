@@ -89,7 +89,7 @@ def train(algo, images, save = True):
     
     save_name_model = None
 
-    descriptores, index = extract_features(algorithm, images, min_features=3)
+    descriptores, index = extract_features(algorithm, images, min_features=-1)
     # Vocab
     vocab_on  = algo['vocab']['enable']
     if vocab_on:
