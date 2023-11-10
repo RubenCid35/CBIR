@@ -12,7 +12,8 @@ def load_images(train: bool = True):
     images_paths = pd.read_csv(path)
     images = []
 
-    label_map = {'packaged': 0, 'dishes': 1, 'storefronts': 2, 'artwork': 3, 'meme': 4, 'cars': 5, 'landmark': 6, 'illustrations': 7, 'toys': 8, 'apparel': 9, 'furniture': 10}
+    label_map = { "bell pepper" : 0, "brown bear" : 1, "bucket" : 2, "bullfrog" : 3, "espresso" : 4, "lemon" : 5, "school bus" : 6, "soda bottle" : 7, "sports car" : 8, "tarantula" : 9}
+
 
     for _, row in images_paths.iterrows():
         img = cv2.imread("../" + row['path'])
