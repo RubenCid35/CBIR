@@ -21,6 +21,8 @@ from hashlib import sha256
 TRAIN_META, TRAIN_IMAGES = load_images(True)
 TEST_META, TEST_IMAGES = load_images(False)
 
+PRECOMPUTED = None
+
 def normalize_hist(vector):
     return vector / np.linalg.norm(vector)
 
@@ -43,9 +45,9 @@ def orb_descriptor(image, wta = 4, score = cv2.ORB_HARRIS_SCORE):
     return descs
 
 def cch_descriptor(image, bins = 32):
-    rbin = normalize_hist(np.histogram(image[:, :, 0], bins = bins, range = [0, 255])[1])
-    gbin = normalize_hist(np.histogram(image[:, :, 1], bins = bins, range = [0, 255])[1])
-    bbin = normalize_hist(np.histogram(image[:, :, 2], bins = bins, range = [0, 255])[1])
+    rbin = normalize_hist(np.histogram(image[:, :, 0], bins = bins, range = [0, 255])[0])
+    gbin = normalize_hist(np.histogram(image[:, :, 1], bins = bins, range = [0, 255])[0])
+    bbin = normalize_hist(np.histogram(image[:, :, 2], bins = bins, range = [0, 255])[0])
 
     return np.concatenate([rbin, gbin, bbin], axis = 0).reshape(1, -1).astype(np.float32) # Un Vector con solo columnas
 
@@ -63,20 +65,20 @@ def prepare_extraction(algo):
     else:
         # TODO Change To CNN
         algorithm = sift_descriptor # partial(sift_descriptor, octaves = algo['config']['octaves'], thress = algo['config']['contrast'])
-        config_phrase = ""
+        
 
+    print(algo_name, dumps(algo['config'], sort_keys=True), dumps(algo['vocab']))
     return algorithm
 
 def train(algo, images, save = True):
     # Extract Features
     algo_name = algo['method']
     config_phrase = dumps(algo['config'], sort_keys=True).encode('utf-8')
-    config_phrase = sha256().hexdigest()
+    config_phrase = sha256(config_phrase).hexdigest()
 
-    print(algo_name, dumps(algo['config'], sort_keys=True), dumps(algo['vocab']))
     algorithm = prepare_extraction(algo)
     
-    save_name = algo_name + "-" + config_phrase[-10:]
+    save_name = algo_name + "-" + config_phrase
     if algo['vocab']['bins']:
         vocab_bin = algo['vocab']['bins']
         save_name = save_name + "-vocab-" + str(vocab_bin)

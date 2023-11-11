@@ -23,6 +23,7 @@ from .staging import prepare_extraction
 from .staging import cch_descriptor, sift_descriptor, orb_descriptor
 
 def recommend(query_image, algo, train_desc_path, train_model_path):
+    print( train_desc_path, train_model_path)
     if isinstance(query_image, str): 
         query_image = cv2.imread(query_image)
         query_image = cv2.cvtColor(query_image, cv2.COLOR_BGR2RGB)
@@ -31,6 +32,7 @@ def recommend(query_image, algo, train_desc_path, train_model_path):
     print("ALGORITHM:", dumps(algo))
     extraction = prepare_extraction(algo)
     features = extraction(query_image)
+    print(extraction, algo)
     if features is None: return None
 
     if algo['vocab']['enable']:
@@ -41,6 +43,7 @@ def recommend(query_image, algo, train_desc_path, train_model_path):
 
     # Load Database
     meta, precomputed = load_features('../features/' + train_desc_path, index = True)
+    print(features.shape, precomputed.shape)
     print('USED FEAUTRES: ../features/' + train_desc_path)
 
     # Recommend
