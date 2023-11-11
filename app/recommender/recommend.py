@@ -18,6 +18,7 @@ from pickle import load
 
 from hashlib import sha256
 from .staging import TRAIN_IMAGES, TRAIN_META
+from .staging import ML_MODEL, VOCAB_MODEL, PRECOMPUTED, CONFIG
 
 from .staging import prepare_extraction
 from .staging import cch_descriptor, sift_descriptor, orb_descriptor
@@ -36,7 +37,7 @@ def recommend(query_image, algo, train_desc_path, train_model_path):
     if features is None: return None
 
     if algo['vocab']['enable']:
-        vocabulary = load(open('../model/' + train_model_path, 'rb'))    
+        vocabulary = VOCAB_MODEL    
         words = vocabulary.predict(features)
         words = np.bincount(words, minlength=algo['vocab']['bins'])
         features = normalize( words.reshape((1, -1)) ).reshape((-1)).reshape((1, -1))
@@ -45,6 +46,7 @@ def recommend(query_image, algo, train_desc_path, train_model_path):
     meta, precomputed = load_features('../features/' + train_desc_path, index = True)
     print(features.shape, precomputed.shape)
     print('USED FEAUTRES: ../features/' + train_desc_path)
+
 
     # Recommend
     recommended = minmin_retrival(features, precomputed, meta, best_k=20)

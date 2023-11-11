@@ -61,6 +61,16 @@ def algorithm_callbacks(app: dash.Dash):
             ret = [
                     html.Div([ html.Label("Número de Discretizaciones: ", className = "text-center"), get_bins ], className = "flex text-center my-8"),
             ]
+        elif extract_type == 'cnn':
+            model_name = html.Div([
+                dcc.Dropdown(options = [
+                    {'label': 'RESTNET 18', 'value': 'resnet18'},
+                    {'label': 'VGG 16', 'value': 'vgg16'},
+                ], value = 'resnet18', id = {'type':'extract-config', 'index': 'cnn-name'}, className = 'text-left', clearable=False)
+            ], className = "w-[30em] min-w-[60%] ml-4")
+            ret = [
+                    html.Div([ html.Label("Modelo Preentrenado: ", className = "text-center"), model_name ], className = "flex text-center my-8"),
+            ]
 
         return html.Div(ret, className = "border-2 border-gray-300 rounded-md py-4 px-2")
 

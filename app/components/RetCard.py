@@ -2,13 +2,10 @@ import dash
 from dash import dcc, html, Input, Output, State, ctx, ALL, ClientsideFunction
 
 from utils.utils import load_images
-from recommender.staging import TEST_META,TRAIN_META
+from recommender.staging import TRAIN_META
 from recommender.recommend import recommend
 
 NO_IMAGE_ICON: str = r"https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg?w=826"
-
-# TODO Remove Later
-sample = TEST_META.sample(n = 40, random_state = 1010)
 
 def generate_image_button(image_path, _id):
     _id = {
@@ -20,9 +17,6 @@ def generate_image_button(image_path, _id):
         html.Img(className = "object-fill w-[100%] min-w-[128px] aspect-square mx-auto", 
                  src = dash.get_asset_url(image_path))
     ], className = "w-[156px]", id = _id)
-
-
-
 
 
 def output_callbacks(app: dash.Dash):
@@ -64,14 +58,6 @@ def output_callbacks(app: dash.Dash):
             btn_image = generate_image_button(img, i)
             ret.append(btn_image)
         return ret, False, image_path, image
-
-
-def populate_images():
-    ret = []
-    for i, path in enumerate(sample['path']):
-        ret.append(generate_image_button(path, i))
-
-    return ret
 
 zoomed_image = html.Div([
     html.Img(id = "zoomed-image-img", className = "object-fill max-w-[90%] w-[350px] min-w-[256px] rounded-lg aspect-square border-gray-500 border-2", src = NO_IMAGE_ICON )
